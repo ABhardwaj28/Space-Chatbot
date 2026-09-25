@@ -19,16 +19,34 @@ async function sendMessage() {
 
 async function getBotResponse(userMessage) {
     try {
-        const response = await fetch("https://space-chatbot-backend-7onqicq97-apoorva-bhardwaj.vercel.app/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userMessage }),
-        });
-        const data = await response.json();
+        const response = await fetch(
+            "https://space-chatbot-backend-7onqicq97-apoorva-bhardwaj.vercel.app/chat",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: userMessage
+                })
+            }
+        );
+
+        const raw = await response.text();
+
+        console.log("Backend status:", response.status);
+        console.log("Backend response:", raw);
+
+        if (!response.ok) {
+            return `⚠️ Backend error (${response.status})`;
+        }
+
+        const data = JSON.parse(raw);
         return data.reply;
+
     } catch (error) {
-        console.error("Error connecting to backend:", error);
-        return "⚠️ Sorry, I’m having trouble connecting to my space database!";
+        console.error("Connection error:", error);
+        return "⚠️ Could not connect to the Astrobot backend.";
     }
 }
 
