@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <title>Asterism-AI — Spacebot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="chat-container">
+        <header> 🚀 Astrobot <span class="subtitle"></span></header>
+
+        <div id="chat-box" class="chat-box">
+            <div class="message-bubble bot-bubble">Greetings Commander. Ask me anything about space 🌌</div>
+        </div>
+
+        <div class="input-area">
+            <input id="user-input" type="text" placeholder="Type your message..." autofocus />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+
+    <script>
+         Particle background setup
+        particlesJS('particles-js', {
+            particles: {
+               number: { value: 100 },
+                size: { value: 2 },
+                move: { speed: 0.5 },
+                color: { value: '#00ffff' }
+            }
+        });
+
+       
+        document.querySelector('.message-bubble.bot-bubble').textContent = ' 🛸 Greetings Commander! I am Astrobot. Ask me what i can do!';
+
+    </script>
+</body>
+</html>
