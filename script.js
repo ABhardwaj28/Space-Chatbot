@@ -19,7 +19,7 @@ async function sendMessage() {
 
 async function getBotResponse(userMessage) {
     try {
-        const response = await fetch("http://127.0.0.1:5000/chat", {
+        const response = await fetch("https://space-chatbot-backend-7onqicq97-apoorva-bhardwaj.vercel.app/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: userMessage }),
